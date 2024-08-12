@@ -24,6 +24,26 @@ type Director struct{
 
 var movies []Movie
 
+// Get All Movies
+func getMovies(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(movies)
+}
+
+// Get Single Movie
+func getMovie(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r) // Get Params
+	// Loop through movies and find with id
+	for _, item := range movies{
+		if item.ID == params["id"]{
+			json.NewEncoder(w).Encode(item)
+			return
+		}
+	}
+	json.NewEncoder(w).Encode(&Movie{})
+}
+
 // main
 func main(){
 	// Init Router
