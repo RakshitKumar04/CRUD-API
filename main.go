@@ -44,6 +44,20 @@ func getMovie(w http.ResponseWriter, r *http.Request){
 	json.NewEncoder(w).Encode(&Movie{})
 }
 
+// Delete Movie
+func deleteMovie(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r) // Get Params
+	// Loop through movies and find with id
+	for index, item := range movies{
+		if item.ID == params["id"]{
+			movies = append(movies[:index], movies[index+1:]...)
+			break
+		}
+	}
+	json.NewEncoder(w).Encode(movies)
+}
+
 // main
 func main(){
 	// Init Router
