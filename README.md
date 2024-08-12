@@ -23,7 +23,7 @@ This project is a simple RESTful API built using Go, which allows users to manag
    The project uses the `gorilla/mux` package. You can install it by running:
 
    ```bash
-   go install github.com/gorilla/mux
+   go install github.com/gorilla/mux@latest
    ```
 
 3. **Run the application**:
