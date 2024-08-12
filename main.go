@@ -44,6 +44,16 @@ func getMovie(w http.ResponseWriter, r *http.Request){
 	json.NewEncoder(w).Encode(&Movie{})
 }
 
+// Create a new Movie
+func createMovie(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Content-Type", "applciation/json")
+	var movie Movie
+	_ = json.NewDecoder(r.Body).Decode(&movie)
+	movie.ID = strconv.Itoa(rand.Intn(1000000)) // Mock ID
+	movies = append(movies, movie)
+	json.NewEncoder(w).Encode(movie)
+}
+
 // Delete Movie
 func deleteMovie(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "application/json")
@@ -74,6 +84,6 @@ func main(){
 	r.HandleFunc("/movies/{id}", updateMovie).Methods("PUT")
 	r.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
 
-	fwt.Println("Server starting on port 8000")
+	fmt.Println("Server starting on port 8000")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
