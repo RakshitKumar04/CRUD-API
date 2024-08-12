@@ -8,6 +8,7 @@ This project is a simple RESTful API built using Go, which allows users to manag
 
 - Go 1.16 or later
 - A terminal or command prompt
+- Postman
 
 ### Installation
 
@@ -72,6 +73,22 @@ This project is a simple RESTful API built using Go, which allows users to manag
 - **Method**: `DELETE`
 - **Description**: Deletes a movie by its ID.
 - **Response**: JSON array of the remaining movies.
+
+## Testing the API with Postman
+
+Postman is an excellent tool for testing and interacting with APIs. You can use Postman to test all the endpoints provided by this API.
+
+1. **Import the API**: You can manually create requests in Postman or import a collection if available.
+
+2. **Test Endpoints**: 
+   - Use the `GET` request to retrieve movies.
+   - Use the `POST` request to add new movies.
+   - Use the `PUT` request to update existing movies.
+   - Use the `DELETE` request to remove movies.
+
+3. **Request Headers**: Ensure the `Content-Type` header is set to `application/json` for requests that send or receive JSON data.
+
+4. **Request Body**: For `POST` and `PUT` requests, use the "raw" option in the body tab of Postman, and select `JSON` as the format.
 
 ## Project Structure
 
