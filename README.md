@@ -37,6 +37,8 @@ This project is a simple RESTful API built using Go, which allows users to manag
 
 ## API Endpoints
 
+![IMG_0464](https://github.com/user-attachments/assets/60cdfca4-91bc-480c-957c-2558220d369a)
+
 ### 1. Get All Movies
 
 - **Endpoint**: `/movies`
